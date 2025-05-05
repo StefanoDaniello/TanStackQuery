@@ -10,7 +10,7 @@ import {
 import { fetchPosts } from "../../../api/posts";
 
 export default function Page() {
-  const { data, error, isLoading } = useQuery({
+  const { data, error, isLoading, isSuccess } = useQuery({
     queryKey: ["posts"],
     queryFn: fetchPosts,
     // staleTime: Infinity,
@@ -30,7 +30,7 @@ export default function Page() {
   if (error) return <div>Errore: {(error as Error).message}</div>;
 
   return (
-    <div className="container mx-auto space-y-3">
+    <div className="container mx-auto space-y-3 ">
       <h2 className="mt-3 font-bold text-2xl ">Post</h2>
       <div className="grid grid-cols-3 gap-4">
         {data ? (
